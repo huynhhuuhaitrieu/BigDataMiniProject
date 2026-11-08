@@ -8,6 +8,7 @@ from pyspark.sql.types import DoubleType, StringType, StructField, StructType
 def create_spark_connection():
     spark_conn = SparkSession.builder \
         .appName("NABKafkaStreaming") \
+        .master(os.environ.get("SPARK_MASTER_URL", "local[*]")) \
         .config("spark.driver.host", os.environ.get("SPARK_DRIVER_HOST", "127.0.0.1")) \
         .config("spark.driver.bindAddress", "0.0.0.0") \
         .config(
