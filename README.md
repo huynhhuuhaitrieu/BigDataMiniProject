@@ -73,6 +73,8 @@ Keep this terminal open while the stream runs; press `Ctrl+C` to stop the Spark 
 
 The Worker mounts the repository output and checkpoint folders at the same absolute WSL paths used by the driver. Keep these paths and their group-write permissions so distributed tasks can write Spark output.
 
+**Path note for other team members:** `docker-compose.yml` currently mounts `./output` and `./checkpoints` to `/home/hur5hc/hur5hc/CS_master/bigdata/output` and `/home/hur5hc/hur5hc/CS_master/bigdata/checkpoints`. These container destinations are hard-coded to this WSL checkout path because Spark workers must see the same absolute paths that the WSL driver passes as `NAB_OUTPUT_PATH` and `NAB_CHECKPOINT_PATH`. If you clone or move the repository to a different WSL path, update both destination paths in the `spark-worker` volumes to match your checkout, then create the local directories and grant the worker group write permission.
+
 The standalone producer runs in WSL and connects to Kafka at `172.20.0.1:9092`. Airflow runs inside Docker and connects to Kafka at `broker:29092`.
 
 ## 4. Send NAB data to Kafka
