@@ -1,6 +1,6 @@
 # NAB Kafka-Spark Streaming
 
-This guide explains how to run the NAB streaming pipeline in WSL2. The default pipeline is:
+This guide explains how to run the NAB streaming pipeline on macOS, Linux, or WSL2. The default pipeline is:
 
 ```text
 NAB CSV -> Kafka topic `nab_raw` -> Spark Structured Streaming -> `output/nab/*.json`
@@ -10,28 +10,35 @@ You can send data with the standalone Python producer or trigger the Airflow DAG
 
 ## 1. Prepare the environment
 
-Open a WSL terminal and change to the repository directory:
-
-```bash
-cd /home/hur5hc/hur5hc/CS_master/bigdata
-```
+Open a terminal in the repository directory.
 
 If the virtual environment or dependencies are not installed:
 
 ```bash
-uv sync
-uv pip install --python .venv/bin/python -r requirements.txt
+uv python install 3.12
+uv sync --python 3.12
 ```
 
-`uv sync` installs PySpark from `pyproject.toml`; `requirements.txt` installs `kafka-python`.
+The project pins a supported Python range and installs both PySpark and `kafka-python` from `pyproject.toml`.
+
+On macOS, install Java 17 if needed, then select it in the current terminal before running Spark:
+
+```bash
+brew install openjdk@17
+export JAVA_HOME="$(brew --prefix openjdk@17)/libexec/openjdk.jdk/Contents/Home"
+export PATH="$JAVA_HOME/bin:$PATH"
+java -version
+```
+
+Confirm Java prints version 17. PySpark 3.5.1 uses Hadoop libraries that fail during startup on newer Java versions.
 
 ## 2. Start the Docker services
 
 ```bash
-docker compose up -d zookeeper broker postgres webserver scheduler
+docker compose up -d zookeeper broker
 ```
 
-Wait until `broker` and `webserver` are ready.
+Wait until `broker` is healthy with `docker compose ps`.
 
 Create the Kafka topic. This command is safe to run more than once:
 
@@ -39,54 +46,39 @@ Create the Kafka topic. This command is safe to run more than once:
 docker compose exec broker kafka-topics --bootstrap-server broker:29092 --create --if-not-exists --topic nab_raw --partitions 1 --replication-factor 1
 ```
 
-List the topics to verify it exists:
+## 3. Start the NAB consumer (Terminal 1)
 
-```bash
-docker compose exec broker kafka-topics --bootstrap-server broker:29092 --list
-```
-
-## 3. Start the Spark cluster and NAB consumer
-
-Start the Spark Master and Worker containers:
+Create local output and checkpoint directories:
 
 ```bash
 mkdir -p output/nab checkpoints/nab
-chmod 775 output/nab checkpoints/nab
-docker compose up -d spark-master spark-worker
-docker compose ps spark-master spark-worker
 ```
 
-Run the PySpark driver from WSL and submit its work to the Docker Spark Master. Workers must be able to connect back to the WSL driver, so set `SPARK_DRIVER_HOST` to the first address returned by `hostname -I` (usually the `172.31.x.x` WSL address):
+Run the PySpark driver in local mode from the same host as the broker. This avoids requiring Docker Spark workers to connect back to a host driver. Set `SPARK_DRIVER_HOST` only when using a remote Spark cluster.
 
 ```bash
-cd /home/hur5hc/hur5hc/CS_master/bigdata
-export SPARK_MASTER_URL=spark://localhost:7077
-export SPARK_DRIVER_HOST="$(hostname -I | awk '{print $1}')"
-export KAFKA_BOOTSTRAP_SERVERS=172.20.0.1:9092
+export SPARK_MASTER_URL=local[*]
+export KAFKA_BOOTSTRAP_SERVERS=localhost:9092
 export NAB_TOPIC=nab_raw
 export NAB_OUTPUT_PATH="$PWD/output/nab"
 export NAB_CHECKPOINT_PATH="$PWD/checkpoints/nab"
 .venv/bin/python spark_stream.py
 ```
 
-Keep this terminal open while the stream runs; press `Ctrl+C` to stop the Spark application. The Master UI is at [http://localhost:9090](http://localhost:9090). The Spark application UI is usually at [http://localhost:4040](http://localhost:4040); Spark may select another port if 4040 is already occupied.
+Keep this terminal open while the stream runs; press `Ctrl+C` to stop the Spark application. The Spark application UI is usually at [http://localhost:4040](http://localhost:4040); Spark may select another port if 4040 is already occupied.
 
-The Worker mounts the repository output and checkpoint folders at the same absolute WSL paths used by the driver. Keep these paths and their group-write permissions so distributed tasks can write Spark output.
+**Start Spark before the producer.** Spark continuously watches Kafka and writes each batch it reads as JSON Lines files in `output/nab`. If you already sent records, this script is configured with `startingOffsets=earliest`, so a new checkpoint can read retained records from the beginning.
 
-**Path note for other team members:** `docker-compose.yml` currently mounts `./output` and `./checkpoints` to `/home/hur5hc/hur5hc/CS_master/bigdata/output` and `/home/hur5hc/hur5hc/CS_master/bigdata/checkpoints`. These container destinations are hard-coded to this WSL checkout path because Spark workers must see the same absolute paths that the WSL driver passes as `NAB_OUTPUT_PATH` and `NAB_CHECKPOINT_PATH`. If you clone or move the repository to a different WSL path, update both destination paths in the `spark-worker` volumes to match your checkout, then create the local directories and grant the worker group write permission.
-
-The standalone producer runs in WSL and connects to Kafka at `172.20.0.1:9092`. Airflow runs inside Docker and connects to Kafka at `broker:29092`.
+Clients running on the host use `localhost:9092`; clients in Docker use `broker:29092`.
 
 ## 4. Send NAB data to Kafka
 
 ### Option A: Run the standalone producer
 
-Open a third WSL terminal:
+With Spark still running in Terminal 1, open a second terminal (Terminal 2) and send the CSV:
 
 ```bash
-cd /home/hur5hc/hur5hc/CS_master/bigdata
-
-.venv/bin/python script/stream_nab.py --file data/realKnownCause/machine_temperature_system_failure.csv --topic nab_raw --delay 0.1 --bootstrap-servers 172.20.0.1:9092
+.venv/bin/python script/stream_nab.py --file data/realKnownCause/machine_temperature_system_failure.csv --topic nab_raw --delay 0.1 --bootstrap-servers localhost:9092
 ```
 
 Use `--delay 0` to send as fast as possible, or `--delay 1` to wait one second between messages. When it finishes, the producer prints the number of messages sent. The CSV must contain `timestamp` and `value` columns.
