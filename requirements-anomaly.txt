@@ -1,0 +1,6 @@
+# Install in a Python 3.11 or 3.12 environment; Java 17 is required for Spark.
+pyspark==3.5.1
+kafka-python>=2.0.3,<3
+pandas>=2.0,<2.3
+pyarrow>=12,<20
+matplotlib>=3.8,<3.11

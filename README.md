@@ -147,3 +147,46 @@ docker compose stop
 ## Restart notes
 
 Spark uses a checkpoint to remember Kafka offsets. Keep the same `NAB_CHECKPOINT_PATH` to continue from the previous stream position. To replay from the beginning, use a separate topic, checkpoint, and output directory for the new test. Do not remove a checkpoint while Spark is running.
+
+## 8. Run the standalone anomaly detector
+
+The separate `detection.py` module scores a CSV without starting Kafka or Spark. It supports static Z-score detection with a supplied baseline and rolling Z-score detection over prior observations. This is useful for checking detector behavior on NAB data before connecting detection to the streaming pipeline.
+
+From the repository root, run:
+
+```bash
+.venv/bin/python - <<'PY'
+import csv
+from detection import DetectionConfig, detect_anomalies
+
+csv_path = "data/realAWSCloudwatch/ec2_cpu_utilization_24ae8d.csv"
+with open(csv_path, newline="", encoding="utf-8") as f:
+    records = list(csv.DictReader(f))
+
+scored = detect_anomalies(
+    records,
+    config=DetectionConfig(threshold=3.0, rolling_window=100, min_periods=20),
+    # Optional: static_baseline=(mean, standard_deviation),
+)
+
+alerts = [row for row in scored if row["is_anomaly"]]
+print(f"Scored {len(scored)} records; found {len(alerts)} anomalies")
+for row in alerts[:20]:
+    print(row["timestamp"], row["value"], row["rolling_zscore"])
+PY
+```
+
+The CSV must have `timestamp` and `value` columns and should be in event-time order. Rolling detection uses only previous values for its baseline; the first `min_periods` records build history and are not rolling-scored. To use the static detector too, calculate a mean and standard deviation from a separate normal calibration segment and pass them as `static_baseline=(mean, standard_deviation)`. Avoid calibrating on the same anomaly period you are evaluating.
+
+## 9. Run the enhanced Spark anomaly pipeline
+
+The enhanced application adds per-metric calibration, checkpointed rolling detection, explicit handling of delayed events, NAB window/scoring evaluation, and streaming progress reports through separate modules and entry points.
+
+Follow the [enhanced pipeline runbook](design/anomaly_pipeline_runbook.md) for installation and commands. Start with its local file-source demonstration, then use its Kafka instructions. The new environment uses Python 3.11 or 3.12 and Java 17:
+
+```bash
+uv venv --python 3.11 .venv-anomaly
+uv pip install --python .venv-anomaly/bin/python -r requirements-anomaly.txt
+```
+
+The main commands are `script/calibrate_anomaly.py`, `script/replay_anomaly.py`, `script/run_detection.py`, and `script/evaluate_anomaly.py`. All required arguments and a complete example are in the runbook. Implementation checks and initial CloudWatch results are recorded in the [validation report](design/results/anomaly_validation.md).

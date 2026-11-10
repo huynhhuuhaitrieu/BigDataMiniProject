@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "fraction": 0.15,
+  "metrics": {
+    "realAWSCloudwatch/ec2_cpu_utilization_24ae8d.csv": {
+      "mean": 0.12349668874172186,
+      "stddev": 0.08493299846023432,
+      "sample_count": 604,
+      "end_timestamp": "2014-02-16 16:45:00",
+      "source_sha256": "55ede7093c8dbd73e160354b1663c628b78596d0d6607c14187cb6d2f4f02a29",
+      "absolute_tolerance": 0.01,
+      "calibration_id": "8a8606fad7f8520e"
+    },
+    "realAWSCloudwatch/ec2_cpu_utilization_c6585a.csv": {
+      "mean": 0.0879635761589404,
+      "stddev": 0.08303517166181118,
+      "sample_count": 604,
+      "end_timestamp": "2014-04-04 16:44:00",
+      "source_sha256": "226ca2115595b3e22108d741abd5fa391532a487d8c4cf9ebe2ecfb5432ebbe4",
+      "absolute_tolerance": 0.01,
+      "calibration_id": "bf33ae2357becf31"
+    },
+    "realAWSCloudwatch/ec2_network_in_257a54.csv": {
+      "mean": 774905.4387417219,
+      "stddev": 1131907.443713041,
+      "sample_count": 604,
+      "end_timestamp": "2014-04-12 02:24:00",
+      "source_sha256": "749c9271205cf4d308a06f687ffbdd427b3212a333c68bb5d6708aa4947adef9",
+      "absolute_tolerance": 0.01,
+      "calibration_id": "c70889df9587998b"
+    }
+  }
+}

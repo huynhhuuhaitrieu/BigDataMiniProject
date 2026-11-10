@@ -1,0 +1,10 @@
+{
+  "reference_records": 12096,
+  "actual_records": 12096,
+  "missing": [],
+  "extra": [],
+  "reference_duplicates": [],
+  "actual_duplicates": [],
+  "mismatches": [],
+  "passed": true
+}

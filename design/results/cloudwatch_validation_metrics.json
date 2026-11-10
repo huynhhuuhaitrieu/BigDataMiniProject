@@ -1,0 +1,198 @@
+{
+  "status_counts": {
+    "control": 3,
+    "calibration": 1812,
+    "accepted": 10284
+  },
+  "rejection_reasons": {},
+  "duplicate_event_ids": [],
+  "series": {
+    "realAWSCloudwatch/ec2_cpu_utilization_24ae8d.csv": {
+      "static": {
+        "evaluated_records": 3428,
+        "eligible_windows": 2,
+        "detected_windows": 2,
+        "missed_windows": 0,
+        "false_alerts": 11,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 3.208868144690782,
+        "delay_median_seconds": 30000.0,
+        "delay_p95_seconds": 30000.0,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 3428,
+        "eligible_windows": 2,
+        "detected_windows": 2,
+        "missed_windows": 0,
+        "false_alerts": 12,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 3.500583430571762,
+        "delay_median_seconds": 28050.0,
+        "delay_p95_seconds": 29805.0,
+        "undecided_records": 0
+      }
+    },
+    "realAWSCloudwatch/ec2_cpu_utilization_c6585a.csv": {
+      "static": {
+        "evaluated_records": 3428,
+        "eligible_windows": 0,
+        "detected_windows": 0,
+        "missed_windows": 0,
+        "false_alerts": 12,
+        "window_recall": null,
+        "false_alerts_per_1000": 3.500583430571762,
+        "delay_median_seconds": null,
+        "delay_p95_seconds": null,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 3428,
+        "eligible_windows": 0,
+        "detected_windows": 0,
+        "missed_windows": 0,
+        "false_alerts": 21,
+        "window_recall": null,
+        "false_alerts_per_1000": 6.1260210035005835,
+        "delay_median_seconds": null,
+        "delay_p95_seconds": null,
+        "undecided_records": 0
+      }
+    },
+    "realAWSCloudwatch/ec2_network_in_257a54.csv": {
+      "static": {
+        "evaluated_records": 3428,
+        "eligible_windows": 1,
+        "detected_windows": 1,
+        "missed_windows": 0,
+        "false_alerts": 1,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 0.29171528588098017,
+        "delay_median_seconds": 60300.0,
+        "delay_p95_seconds": 60300.0,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 3428,
+        "eligible_windows": 1,
+        "detected_windows": 1,
+        "missed_windows": 0,
+        "false_alerts": 42,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 12.252042007001167,
+        "delay_median_seconds": 60300.0,
+        "delay_p95_seconds": 60300.0,
+        "undecided_records": 0
+      }
+    }
+  },
+  "aggregate": {
+    "static": {
+      "evaluated_records": 10284,
+      "eligible_windows": 3,
+      "detected_windows": 3,
+      "missed_windows": 0,
+      "false_alerts": 24,
+      "window_recall": 1.0,
+      "false_alerts_per_1000": 2.3337222870478413
+    },
+    "rolling": {
+      "evaluated_records": 10284,
+      "eligible_windows": 3,
+      "detected_windows": 3,
+      "missed_windows": 0,
+      "false_alerts": 75,
+      "window_recall": 1.0,
+      "false_alerts_per_1000": 7.292882147024504
+    }
+  },
+  "policy": "No cooldown. Recall includes only windows fully contained in the common post-calibration interval; undecided points remain in the denominator.",
+  "performance": {
+    "latency_kind": "driver-observed batch completion proxy; not sink visibility latency",
+    "matched_records": 10284,
+    "p50_ms": 325428.0,
+    "p95_ms": 325461.0,
+    "alert_p50_ms": 325409.0,
+    "alert_p95_ms": 325456.4,
+    "negative_latency_count": 0,
+    "batches": [
+      {
+        "batch_id": 0,
+        "input_rows": 12099,
+        "input_rows_per_second": 0.0,
+        "processed_rows_per_second": 3887.8534704370177,
+        "duration_ms": 3112,
+        "state_operators": [
+          {
+            "operatorName": "applyInPandasWithState",
+            "numRowsTotal": 3,
+            "numRowsUpdated": 3,
+            "allUpdatesTimeMs": 3054,
+            "numRowsRemoved": 0,
+            "allRemovalsTimeMs": 0,
+            "commitTimeMs": 108,
+            "memoryUsedBytes": 4648,
+            "numRowsDroppedByWatermark": 0,
+            "numShufflePartitions": 4,
+            "numStateStoreInstances": 4,
+            "customMetrics": {
+              "loadedMapCacheHitCount": 0,
+              "loadedMapCacheMissCount": 0,
+              "stateOnCurrentVersionSizeBytes": 4072
+            }
+          }
+        ],
+        "event_time": {},
+        "sources": [
+          {
+            "description": "FileStreamSource[file:/tmp/bigdata-anomaly-demo/input]",
+            "startOffset": null,
+            "endOffset": {
+              "logOffset": 0
+            },
+            "latestOffset": null,
+            "numInputRows": 12099,
+            "inputRowsPerSecond": 0.0,
+            "processedRowsPerSecond": 3887.8534704370177
+          }
+        ]
+      }
+    ],
+    "listener_dropped_events": 0
+  },
+  "nab": {
+    "profile": "standard",
+    "upstream_revision": "ea702d75cc2258d9d7dd35ca8e5e2539d71f3140",
+    "series": {
+      "realAWSCloudwatch/ec2_cpu_utilization_24ae8d.csv": {
+        "static": 0.5948720427262149,
+        "rolling": 0.5245469836749872
+      },
+      "realAWSCloudwatch/ec2_cpu_utilization_c6585a.csv": {
+        "static": -1.3200000000000003,
+        "rolling": -2.3100000000000005
+      },
+      "realAWSCloudwatch/ec2_network_in_257a54.csv": {
+        "static": 0.7506718242697022,
+        "rolling": -2.977705189903234
+      }
+    },
+    "aggregate": {
+      "static": {
+        "raw_score": 0.02554386699591682,
+        "null_score": -3.0,
+        "perfect_score": 3.0,
+        "normalized_subset_score": 50.425731116598605
+      },
+      "rolling": {
+        "raw_score": -4.763158206228248,
+        "null_score": -3.0,
+        "perfect_score": 3.0,
+        "normalized_subset_score": -29.385970103804127
+      }
+    },
+    "scope": "Selected original series only; not a full NAB leaderboard score",
+    "mapping": "abs(z)/(abs(z)+threshold); decision threshold 0.5; constant-baseline flag maps to 0 or 1; calibration/warmup maps to 0",
+    "probation": "Upstream Sweeper 15% capped at 750 observations; windows beginning inside probation omitted; calibration suppression may be longer"
+  }
+}
