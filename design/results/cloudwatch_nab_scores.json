@@ -1,0 +1,35 @@
+{
+  "profile": "standard",
+  "upstream_revision": "ea702d75cc2258d9d7dd35ca8e5e2539d71f3140",
+  "series": {
+    "realAWSCloudwatch/ec2_cpu_utilization_24ae8d.csv": {
+      "static": 0.5948720427262149,
+      "rolling": 0.5245469836749872
+    },
+    "realAWSCloudwatch/ec2_cpu_utilization_c6585a.csv": {
+      "static": -1.3200000000000003,
+      "rolling": -2.3100000000000005
+    },
+    "realAWSCloudwatch/ec2_network_in_257a54.csv": {
+      "static": 0.7506718242697022,
+      "rolling": -2.977705189903234
+    }
+  },
+  "aggregate": {
+    "static": {
+      "raw_score": 0.02554386699591682,
+      "null_score": -3.0,
+      "perfect_score": 3.0,
+      "normalized_subset_score": 50.425731116598605
+    },
+    "rolling": {
+      "raw_score": -4.763158206228248,
+      "null_score": -3.0,
+      "perfect_score": 3.0,
+      "normalized_subset_score": -29.385970103804127
+    }
+  },
+  "scope": "Selected original series only; not a full NAB leaderboard score",
+  "mapping": "abs(z)/(abs(z)+threshold); decision threshold 0.5; constant-baseline flag maps to 0 or 1; calibration/warmup maps to 0",
+  "probation": "Upstream Sweeper 15% capped at 750 observations; windows beginning inside probation omitted; calibration suppression may be longer"
+}
