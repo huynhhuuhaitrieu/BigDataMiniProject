@@ -8,6 +8,19 @@ NAB CSV -> Kafka topic `nab_raw` -> Spark Structured Streaming -> `output/nab/*.
 
 You can send data with the standalone Python producer or trigger the Airflow DAG. Use only one producer method per test run.
 
+## Documentation map
+
+| Document | Contents |
+| --- | --- |
+| This README, sections 1–8 | Original ingestion pipeline (`spark_stream.py`, `script/stream_nab.py`, Airflow DAG) and the standalone `detection.py` |
+| [Enhancement proposal](design/anomaly_detection_enhancement_proposal.md) | Design of the stateful streaming detector: algorithms, Spark state, event-time policy, evaluation protocol |
+| [Pipeline runbook](design/anomaly_pipeline_runbook.md) | Commands for the enhanced pipeline: calibrate, replay, detect, compare, evaluate, Kafka, recovery, performance |
+| [Validation report](design/results/anomaly_validation.md) | What has been verified, first CloudWatch results, open experiments |
+| [Demo website](webui/README.md) | Local web page to run and track the enhanced pipeline and show each feature |
+| [Data corpus](data/README.md) | NAB dataset groups |
+
+For a quick demonstration, set up `.venv-anomaly` as in section 9, then run `.venv-anomaly/bin/python webui/server.py` (section 10).
+
 ## 1. Prepare the environment
 
 Open a terminal in the repository directory.
@@ -190,3 +203,13 @@ uv pip install --python .venv-anomaly/bin/python -r requirements-anomaly.txt
 ```
 
 The main commands are `script/calibrate_anomaly.py`, `script/replay_anomaly.py`, `script/run_detection.py`, and `script/evaluate_anomaly.py`. All required arguments and a complete example are in the runbook. Implementation checks and initial CloudWatch results are recorded in the [validation report](design/results/anomaly_validation.md).
+
+## 10. Demo website
+
+A local web page runs the enhanced pipeline stage by stage and shows the output of every stage: calibration statistics, replay manifest, Spark checkpoint and progress, Spark-versus-reference parity, and evaluation against NAB windows. It also plots scored series, provides a detector playground and runs correctness scenarios.
+
+```bash
+.venv-anomaly/bin/python webui/server.py
+```
+
+Open [http://127.0.0.1:8790](http://127.0.0.1:8790). See the [demo website guide](webui/README.md) for the pages, Kafka mode and a suggested demo script.
