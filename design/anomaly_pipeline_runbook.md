@@ -2,7 +2,7 @@
 
 This is a separate application. The existing `spark_stream.py`, `script/stream_nab.py`, Airflow DAG, and standalone `detection.py` continue to serve their original purposes.
 
-Run commands from the repository root. Generated run files go under `anomaly_runs/`, which ignores generated contents in Git. Choose a new run directory and Kafka topic for each independent experiment. Use the same directory/topic only to resume an interrupted run.
+Run commands from the repository root. The same steps can be started and followed from the [demo website](../webui/README.md). Generated run files go under `anomaly_runs/`, which ignores generated contents in Git. Choose a new run directory and Kafka topic for each independent experiment. Use the same directory/topic only to resume an interrupted run.
 
 ## 1. Create a supported environment
 

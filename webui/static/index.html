@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NAB anomaly pipeline</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>NAB anomaly pipeline</h1>
+  <p class="muted">CO5135 mini-project · CSV → replay → Kafka/JSONL → Spark stateful detector → Parquet → evaluation</p>
+  <p id="env" class="env">checking environment…</p>
+  <nav>
+    <a href="#pipeline">Pipeline runs</a>
+    <a href="#series">Scored series</a>
+    <a href="#playground">Detector playground</a>
+    <a href="#checks">Correctness checks</a>
+  </nav>
+</header>
+
+<main>
+<section id="pipeline" class="page">
+  <div class="cols">
+    <aside>
+      <h2>Runs</h2>
+      <p class="muted small">Folders in <code>anomaly_runs/</code>.</p>
+      <ul id="runs" class="runs"></ul>
+      <details id="new-run-box">
+        <summary>New run</summary>
+        <form id="new-run">
+          <label>Name <input name="name" required pattern="[A-Za-z0-9][A-Za-z0-9_.\-]{0,59}" placeholder="demo-001"></label>
+          <fieldset>
+            <legend>Input</legend>
+            <label class="inline"><input type="radio" name="mode" value="file" checked> JSONL files (no Kafka)</label>
+            <label class="inline"><input type="radio" name="mode" value="kafka"> Kafka</label>
+          </fieldset>
+          <div class="kafka-only">
+            <label>Topic <input name="topic" placeholder="anomaly_demo_001"></label>
+            <label>Partitions <input name="partitions" type="number" value="4" min="1"></label>
+            <label>Replay rate (records/s, 0 = max) <input name="rate" type="number" value="100" min="0"></label>
+          </div>
+          <div class="grid2">
+            <label>Calibration fraction <input name="fraction" type="number" step="0.01" value="0.15"></label>
+            <label>Abs. tolerance <input name="tolerance" type="number" step="0.001" value="0.01"></label>
+            <label>History N <input name="history_size" type="number" value="100"></label>
+            <label>Min periods <input name="min_periods" type="number" value="20"></label>
+            <label>Threshold |z| <input name="threshold" type="number" step="0.1" value="3"></label>
+          </div>
+          <label>Datasets</label>
+          <div id="dataset-picker" class="picker"></div>
+          <button type="submit">Create run</button>
+          <p id="new-run-error" class="error"></p>
+        </form>
+      </details>
+    </aside>
+    <div class="main">
+      <div id="run-view"><p class="muted">Select a run, or create one.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="series" class="page">
+  <h2>Scored series</h2>
+  <p class="muted">Rows committed by Spark (<code>scores/</code>, Parquet) or written by the offline reference (<code>reference.jsonl</code>). Red bands are NAB labelled windows; grey is the calibration prefix.</p>
+  <form id="series-form" class="toolbar">
+    <label>Run <select name="run"></select></label>
+    <label>Metric <select name="metric"></select></label>
+    <label>Source <select name="source"><option value="scores">Spark scores</option><option value="reference">Offline reference</option></select></label>
+    <button type="submit">Load</button>
+    <button type="button" class="note-toggle" data-page="series">Ẩn chú thích</button>
+  </form>
+  <div id="series-out"></div>
+</section>
+
+<section id="playground" class="page">
+  <h2>Detector playground</h2>
+  <p class="muted">Runs the same <code>MetricEngine</code> used inside Spark, in-process, on one NAB file. It also replays the file in micro-batches with a JSON state round trip (what the checkpoint stores) and compares the result with a single pass.</p>
+  <form id="play-form" class="toolbar wrap">
+    <label>Dataset <select name="metric"></select></label>
+    <label>Fraction <input name="fraction" type="number" step="0.01" value="0.15"></label>
+    <label>Tolerance <input name="tolerance" type="number" step="0.001" value="0.01"></label>
+    <label>History N <input name="history_size" type="number" value="100"></label>
+    <label>Min periods <input name="min_periods" type="number" value="20"></label>
+    <label>Threshold <input name="threshold" type="number" step="0.1" value="3"></label>
+    <label>Micro-batch <input name="batch_size" type="number" value="500"></label>
+    <button type="submit">Run detector</button>
+    <button type="button" class="note-toggle" data-page="playground">Ẩn chú thích</button>
+  </form>
+  <details class="help annot" open>
+    <summary>Các tham số nghĩa là gì?</summary>
+    <table class="kv">
+      <tr><th>Fraction</th><td>Phần đầu dữ liệu dùng để "học" mức bình thường (0.15 = 15% đầu). <b>Static</b> lấy trung bình và độ lệch chuẩn từ đoạn này. Các điểm này không được chấm.</td></tr>
+      <tr><th>Tolerance</th><td>Dùng khi lịch sử phẳng hẳn (độ lệch chuẩn ≈ 0, không chia được): giá trị chỉ bị coi là lạ khi lệch hơn mức này.</td></tr>
+      <tr><th>History N</th><td><b>Rolling</b> so mỗi điểm với N điểm ngay trước nó. Dữ liệu CloudWatch đo 5 phút/lần, nên 100 điểm ≈ 8 giờ.</td></tr>
+      <tr><th>Min periods</th><td>Rolling cần có ít nhất chừng này điểm trước đó mới bắt đầu chấm (giai đoạn "warmup").</td></tr>
+      <tr><th>Threshold</th><td>Mức lạ |z| ≥ ngưỡng thì báo động. Tăng ngưỡng → ít báo nhầm hơn nhưng dễ bỏ sót sự cố.</td></tr>
+      <tr><th>Micro-batch</th><td>Chia dữ liệu thành các lô cỡ này, lưu rồi khôi phục state giữa các lô giống Spark checkpoint. Kết quả phải giống hệt chạy một lần.</td></tr>
+    </table>
+    <p class="muted small">Thử nhanh: đổi Threshold 3 → 4, hoặc History N 100 → 300, rồi so cột False alerts. Chọn <code>ec2_cpu_utilization_c6585a.csv</code> (không có vùng sự cố) để thấy mọi báo động đều là báo nhầm.</p>
+  </details>
+  <div id="play-out"></div>
+</section>
+
+<section id="checks" class="page">
+  <h2>Correctness checks</h2>
+  <p class="muted">Each scenario feeds hand-made events to <code>MetricEngine</code> and shows what came out. These mirror the contract tests in <code>tests/</code>.</p>
+  <div class="toolbar">
+    <button id="rerun-checks">Run scenarios</button>
+    <button id="unit-tests">Run unit tests</button>
+    <button id="spark-tests">Run unit + Spark tests</button>
+  </div>
+  <div id="checks-out"></div>
+  <pre id="tests-out" class="log hidden"></pre>
+</section>
+</main>
+
+<div id="tip" class="tip hidden"></div>
+<script src="app.js"></script>
+</body>
+</html>

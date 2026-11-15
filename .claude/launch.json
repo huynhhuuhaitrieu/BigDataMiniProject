@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "webui",
+      "runtimeExecutable": ".venv-anomaly/bin/python",
+      "runtimeArgs": ["webui/server.py"],
+      "port": 8790
+    }
+  ]
+}
