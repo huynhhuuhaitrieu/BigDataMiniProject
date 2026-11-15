@@ -17,6 +17,8 @@ You can send data with the standalone Python producer or trigger the Airflow DAG
 | [Pipeline runbook](design/anomaly_pipeline_runbook.md) | Commands for the enhanced pipeline: calibrate, replay, detect, compare, evaluate, Kafka, recovery, performance |
 | [Validation report](design/results/anomaly_validation.md) | What has been verified, first CloudWatch results, open experiments |
 | [Demo website](webui/README.md) | Local web page to run and track the enhanced pipeline and show each feature |
+| [Project assessment](assess/README.md) | Which project targets are implemented and verified, with measured evidence (Vietnamese) |
+| [AI assistant context](AGENTS.md) | Project context for Claude, GPT and similar coding assistants: layout, environment, invariants, conventions |
 | [Data corpus](data/README.md) | NAB dataset groups |
 
 For a quick demonstration, set up `.venv-anomaly` as in section 9, then run `.venv-anomaly/bin/python webui/server.py` (section 10).

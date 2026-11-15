@@ -1,0 +1,93 @@
+{
+  "files": 17,
+  "profile": "standard",
+  "upstream_revision": "ea702d75cc2258d9d7dd35ca8e5e2539d71f3140",
+  "aggregate": {
+    "static": {
+      "raw_score": -514.121703045576,
+      "null_score": -30.0,
+      "perfect_score": 30.0,
+      "normalized_subset_score": -806.8695050759601
+    },
+    "rolling": {
+      "raw_score": -64.8292475269015,
+      "null_score": -30.0,
+      "perfect_score": 30.0,
+      "normalized_subset_score": -58.048745878169164
+    }
+  },
+  "series": {
+    "realAWSCloudwatch/ec2_cpu_utilization_24ae8d.csv": {
+      "static": 0.5948720427262149,
+      "rolling": 0.5245469836749872
+    },
+    "realAWSCloudwatch/ec2_cpu_utilization_53ea38.csv": {
+      "static": -1.169755714432497,
+      "rolling": -1.4863632823757142
+    },
+    "realAWSCloudwatch/ec2_cpu_utilization_5f5533.csv": {
+      "static": 1.5487490264551107,
+      "rolling": 1.1841782410018797
+    },
+    "realAWSCloudwatch/ec2_cpu_utilization_77c1ca.csv": {
+      "static": -4.875861730470212,
+      "rolling": -8.550559920987018
+    },
+    "realAWSCloudwatch/ec2_cpu_utilization_825cc2.csv": {
+      "static": -14.77546348321164,
+      "rolling": -2.2728206347170072
+    },
+    "realAWSCloudwatch/ec2_cpu_utilization_ac20cd.csv": {
+      "static": -15.706075558197238,
+      "rolling": -1.2018783843579077
+    },
+    "realAWSCloudwatch/ec2_cpu_utilization_c6585a.csv": {
+      "static": -1.3200000000000003,
+      "rolling": -2.3100000000000005
+    },
+    "realAWSCloudwatch/ec2_cpu_utilization_fe7f93.csv": {
+      "static": -16.61828740928658,
+      "rolling": -10.391579935007872
+    },
+    "realAWSCloudwatch/ec2_disk_write_bytes_1ef3de.csv": {
+      "static": -6.9750214112230795,
+      "rolling": -7.730636085438365
+    },
+    "realAWSCloudwatch/ec2_disk_write_bytes_c0d644.csv": {
+      "static": -6.106500323973178,
+      "rolling": -7.120052328543488
+    },
+    "realAWSCloudwatch/ec2_network_in_257a54.csv": {
+      "static": 0.7506718242697022,
+      "rolling": -2.977705189903234
+    },
+    "realAWSCloudwatch/ec2_network_in_5abac7.csv": {
+      "static": -3.8519322351911662,
+      "rolling": -7.184127576004267
+    },
+    "realAWSCloudwatch/elb_request_count_8c0756.csv": {
+      "static": -0.7767654795947723,
+      "rolling": -3.7665160197233845
+    },
+    "realAWSCloudwatch/grok_asg_anomaly.csv": {
+      "static": -90.04818916004858,
+      "rolling": -2.244540091021482
+    },
+    "realAWSCloudwatch/iio_us-east-1_i-a2eb1cd9_NetworkIn.csv": {
+      "static": -2.55,
+      "rolling": -2.444557809154758
+    },
+    "realAWSCloudwatch/rds_cpu_utilization_cc0c53.csv": {
+      "static": -59.73330846431406,
+      "rolling": -5.400760516211555
+    },
+    "realAWSCloudwatch/rds_cpu_utilization_e47b3b.csv": {
+      "static": -292.5088349690841,
+      "rolling": -1.4558749781323095
+    }
+  },
+  "scope": "Selected original series only; not a full NAB leaderboard score",
+  "mapping": "abs(z)/(abs(z)+threshold); decision threshold 0.5; constant-baseline flag maps to 0 or 1; calibration/warmup maps to 0",
+  "probation": "Upstream Sweeper 15% capped at 750 observations; windows beginning inside probation omitted; calibration suppression may be longer",
+  "generated_at": "2026-11-15T07:04:37+00:00"
+}

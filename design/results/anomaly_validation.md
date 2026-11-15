@@ -2,6 +2,8 @@
 
 Validation date: 10 November 2026. These are implementation checks and a small initial quality experiment, not final course benchmark results.
 
+> **Update, 15 November 2026.** The remaining experiments listed at the end of this report have since been run; see [Follow-up results](#follow-up-results-15-november-2026) below and the full [project assessment](../../assess/README.md). In particular, the Kafka path is now verified against a running broker.
+
 ## Implemented components
 
 - Separate calibration, replay, offline reference, Spark streaming, comparison, observation and evaluation commands.
@@ -70,3 +72,14 @@ Docker Desktop was manually paused during implementation. The daemon reported th
 The saved progress metrics are from a finite file-source run in `local[2]` with four shuffle partitions. Their latency includes the time between writing replay input and starting Spark. It verifies metric matching, not live alert latency or sustainable throughput. No multi-host scale-out claim is supported by this run.
 
 Before final presentation, complete the proposal's repeated input-rate/partition/resource experiments against a running broker, a process-kill recovery experiment, and quality evaluation across a broader declared subset with development/evaluation separation. A local batch-processing rate must not be reported as sustainable streaming capacity. Delayed-event integration was verified on a short synthetic series; NAB series with disjoint historical ranges must not share a buffered-mode global watermark.
+
+## Follow-up results (15 November 2026)
+
+The items above were completed with [`assess/run_assessment.py`](../../assess/run_assessment.py). Raw numbers are in [`assess/results/`](../../assess/results/); the explanation is in the [project assessment](../../assess/README.md).
+
+- **Kafka verified.** Replay → Kafka (Confluent 7.4, Docker) → Spark: 36,288 of 36,288 records matched the offline reference at 1,000 records/s, with none missing or duplicated. Live latency and lag were measured at three input rates, each run three times.
+- **Process-kill recovery.** The detector's driver and JVM were killed with SIGKILL mid-stream and restarted on the same checkpoint: 12,096 of 12,096 records matched, with no duplicates.
+- **Broader quality subset.** All 17 `realAWSCloudwatch` series (67,740 records) went through Spark with exact parity, and the official NAB scorer (same revision, standard profile) was run on all 17.
+- **Development/evaluation separation.** Threshold and history length were chosen on 9 series by NAB score, then reported once on the other 8.
+- **Resource and partition experiments.** Backlog drain with 1/2/4/8 cores and 1/4/8 Kafka partitions, each run three times. These are reported as backlog processing rates, not as a sustainable streaming rate.
+- **Unthrottled replay.** `script/replay_anomaly.py --rate 0` now flushes every 20,000 records. Earlier, a single final flush of about 240,000 records timed out; 241,920 records now complete in about 16 s.

@@ -1,0 +1,19 @@
+{
+  "records": 12099,
+  "killed_after_committed_batches": 8,
+  "planned_batches_at_kill": 8,
+  "seconds_from_kill_to_first_new_commit": 5.9,
+  "total_batches": 31,
+  "parity": {
+    "reference_records": 12096,
+    "actual_records": 12096,
+    "missing": 0,
+    "extra": 0,
+    "reference_duplicates": 0,
+    "actual_duplicates": 0,
+    "mismatches": 0,
+    "passed": true
+  },
+  "method": "SIGKILL to the detector process group (Python driver and JVM) during the stream, then the identical command with the same checkpoint and output.",
+  "generated_at": "2026-11-15T03:43:28+00:00"
+}

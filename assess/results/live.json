@@ -1,0 +1,940 @@
+{
+  "runs": [
+    {
+      "target_rate": 1000,
+      "copies": 3,
+      "metrics": 9,
+      "data_records": 36288,
+      "achieved_rate": 1000,
+      "replay_seconds": 36.5,
+      "drain_after_replay_seconds": 1.5,
+      "processed_rows_per_second_median": 2333,
+      "batches": 37,
+      "latency_p50_ms": 989.0,
+      "latency_p95_ms": 1468.0,
+      "alert_latency_p50_ms": 996.0,
+      "alert_latency_p95_ms": 1390.0,
+      "visible_alerts": 261,
+      "visibility_p50_ms": 1429.0,
+      "visibility_p95_ms": 2240.0,
+      "max_lag": 0,
+      "lag": [
+        {
+          "batch": 0,
+          "lag": 0,
+          "rows": 0,
+          "at": "2026-11-15T07:07:48.784Z",
+          "ms": 2556
+        },
+        {
+          "batch": 1,
+          "lag": 0,
+          "rows": 434,
+          "at": "2026-11-15T07:08:06.004Z",
+          "ms": 1363
+        },
+        {
+          "batch": 2,
+          "lag": 0,
+          "rows": 1360,
+          "at": "2026-11-15T07:08:07.368Z",
+          "ms": 580
+        },
+        {
+          "batch": 3,
+          "lag": 0,
+          "rows": 634,
+          "at": "2026-11-15T07:08:08.002Z",
+          "ms": 468
+        },
+        {
+          "batch": 4,
+          "lag": 0,
+          "rows": 1002,
+          "at": "2026-11-15T07:08:09.003Z",
+          "ms": 461
+        },
+        {
+          "batch": 5,
+          "lag": 0,
+          "rows": 1002,
+          "at": "2026-11-15T07:08:10.003Z",
+          "ms": 466
+        },
+        {
+          "batch": 6,
+          "lag": 0,
+          "rows": 997,
+          "at": "2026-11-15T07:08:11.002Z",
+          "ms": 464
+        },
+        {
+          "batch": 7,
+          "lag": 0,
+          "rows": 1005,
+          "at": "2026-11-15T07:08:12.005Z",
+          "ms": 413
+        },
+        {
+          "batch": 8,
+          "lag": 0,
+          "rows": 999,
+          "at": "2026-11-15T07:08:13.002Z",
+          "ms": 431
+        },
+        {
+          "batch": 9,
+          "lag": 0,
+          "rows": 1010,
+          "at": "2026-11-15T07:08:14.000Z",
+          "ms": 488
+        },
+        {
+          "batch": 10,
+          "lag": 0,
+          "rows": 992,
+          "at": "2026-11-15T07:08:15.004Z",
+          "ms": 412
+        },
+        {
+          "batch": 11,
+          "lag": 0,
+          "rows": 995,
+          "at": "2026-11-15T07:08:16.002Z",
+          "ms": 415
+        },
+        {
+          "batch": 12,
+          "lag": 0,
+          "rows": 1001,
+          "at": "2026-11-15T07:08:17.002Z",
+          "ms": 427
+        },
+        {
+          "batch": 13,
+          "lag": 0,
+          "rows": 994,
+          "at": "2026-11-15T07:08:18.001Z",
+          "ms": 949
+        },
+        {
+          "batch": 14,
+          "lag": 0,
+          "rows": 1007,
+          "at": "2026-11-15T07:08:19.003Z",
+          "ms": 388
+        },
+        {
+          "batch": 15,
+          "lag": 0,
+          "rows": 1002,
+          "at": "2026-11-15T07:08:20.005Z",
+          "ms": 430
+        },
+        {
+          "batch": 16,
+          "lag": 0,
+          "rows": 1002,
+          "at": "2026-11-15T07:08:21.004Z",
+          "ms": 412
+        },
+        {
+          "batch": 17,
+          "lag": 0,
+          "rows": 994,
+          "at": "2026-11-15T07:08:22.003Z",
+          "ms": 424
+        },
+        {
+          "batch": 18,
+          "lag": 0,
+          "rows": 999,
+          "at": "2026-11-15T07:08:23.003Z",
+          "ms": 404
+        },
+        {
+          "batch": 19,
+          "lag": 0,
+          "rows": 1005,
+          "at": "2026-11-15T07:08:24.004Z",
+          "ms": 407
+        },
+        {
+          "batch": 20,
+          "lag": 0,
+          "rows": 995,
+          "at": "2026-11-15T07:08:25.000Z",
+          "ms": 408
+        },
+        {
+          "batch": 21,
+          "lag": 0,
+          "rows": 1005,
+          "at": "2026-11-15T07:08:26.000Z",
+          "ms": 402
+        },
+        {
+          "batch": 22,
+          "lag": 0,
+          "rows": 999,
+          "at": "2026-11-15T07:08:27.004Z",
+          "ms": 393
+        },
+        {
+          "batch": 23,
+          "lag": 0,
+          "rows": 994,
+          "at": "2026-11-15T07:08:28.002Z",
+          "ms": 554
+        },
+        {
+          "batch": 24,
+          "lag": 0,
+          "rows": 1005,
+          "at": "2026-11-15T07:08:29.004Z",
+          "ms": 435
+        },
+        {
+          "batch": 25,
+          "lag": 0,
+          "rows": 998,
+          "at": "2026-11-15T07:08:30.005Z",
+          "ms": 386
+        },
+        {
+          "batch": 26,
+          "lag": 0,
+          "rows": 1006,
+          "at": "2026-11-15T07:08:31.005Z",
+          "ms": 432
+        },
+        {
+          "batch": 27,
+          "lag": 0,
+          "rows": 995,
+          "at": "2026-11-15T07:08:32.001Z",
+          "ms": 405
+        },
+        {
+          "batch": 28,
+          "lag": 0,
+          "rows": 1001,
+          "at": "2026-11-15T07:08:33.004Z",
+          "ms": 429
+        },
+        {
+          "batch": 29,
+          "lag": 0,
+          "rows": 997,
+          "at": "2026-11-15T07:08:34.002Z",
+          "ms": 465
+        },
+        {
+          "batch": 30,
+          "lag": 0,
+          "rows": 1000,
+          "at": "2026-11-15T07:08:35.001Z",
+          "ms": 459
+        },
+        {
+          "batch": 31,
+          "lag": 0,
+          "rows": 1004,
+          "at": "2026-11-15T07:08:36.003Z",
+          "ms": 513
+        },
+        {
+          "batch": 32,
+          "lag": 0,
+          "rows": 1001,
+          "at": "2026-11-15T07:08:37.005Z",
+          "ms": 439
+        },
+        {
+          "batch": 33,
+          "lag": 0,
+          "rows": 994,
+          "at": "2026-11-15T07:08:38.001Z",
+          "ms": 392
+        },
+        {
+          "batch": 34,
+          "lag": 0,
+          "rows": 1001,
+          "at": "2026-11-15T07:08:39.004Z",
+          "ms": 354
+        },
+        {
+          "batch": 35,
+          "lag": 0,
+          "rows": 1005,
+          "at": "2026-11-15T07:08:40.004Z",
+          "ms": 406
+        },
+        {
+          "batch": 36,
+          "lag": 0,
+          "rows": 995,
+          "at": "2026-11-15T07:08:41.003Z",
+          "ms": 450
+        },
+        {
+          "batch": 37,
+          "lag": 0,
+          "rows": 868,
+          "at": "2026-11-15T07:08:42.006Z",
+          "ms": 915
+        }
+      ],
+      "latency_kind": "driver-observed batch completion proxy; not sink visibility latency",
+      "achieved_rate_runs": [
+        1000,
+        1000,
+        1000
+      ],
+      "drain_after_replay_seconds_runs": [
+        1.5,
+        1.5,
+        1.0
+      ],
+      "processed_rows_per_second_median_runs": [
+        2194,
+        2333,
+        2398
+      ],
+      "latency_p50_ms_runs": [
+        1004.0,
+        989.0,
+        967.5
+      ],
+      "latency_p95_ms_runs": [
+        1504.0,
+        1468.0,
+        1454.0
+      ],
+      "alert_latency_p50_ms_runs": [
+        1026.0,
+        996.0,
+        920.0
+      ],
+      "alert_latency_p95_ms_runs": [
+        1480.0,
+        1390.0,
+        1365.0
+      ],
+      "visibility_p50_ms_runs": [
+        1429.0,
+        1560.0,
+        1337.0
+      ],
+      "visibility_p95_ms_runs": [
+        2240.0,
+        2274.0,
+        2232.0
+      ],
+      "max_lag_runs": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target_rate": 5000,
+      "copies": 12,
+      "metrics": 36,
+      "data_records": 145152,
+      "achieved_rate": 4998,
+      "replay_seconds": 29.3,
+      "drain_after_replay_seconds": 1.5,
+      "processed_rows_per_second_median": 11843,
+      "batches": 30,
+      "latency_p50_ms": 1011.0,
+      "latency_p95_ms": 1472.0,
+      "alert_latency_p50_ms": 1018.0,
+      "alert_latency_p95_ms": 1472.0,
+      "visible_alerts": 1044,
+      "visibility_p50_ms": 1959.0,
+      "visibility_p95_ms": 3346.0,
+      "max_lag": 0,
+      "lag": [
+        {
+          "batch": 0,
+          "lag": 0,
+          "rows": 0,
+          "at": "2026-11-15T07:10:55.159Z",
+          "ms": 2533
+        },
+        {
+          "batch": 1,
+          "lag": 0,
+          "rows": 641,
+          "at": "2026-11-15T07:11:12.003Z",
+          "ms": 1234
+        },
+        {
+          "batch": 2,
+          "lag": 0,
+          "rows": 6413,
+          "at": "2026-11-15T07:11:13.238Z",
+          "ms": 595
+        },
+        {
+          "batch": 3,
+          "lag": 0,
+          "rows": 3806,
+          "at": "2026-11-15T07:11:14.001Z",
+          "ms": 538
+        },
+        {
+          "batch": 4,
+          "lag": 0,
+          "rows": 5003,
+          "at": "2026-11-15T07:11:15.005Z",
+          "ms": 511
+        },
+        {
+          "batch": 5,
+          "lag": 0,
+          "rows": 4989,
+          "at": "2026-11-15T07:11:16.000Z",
+          "ms": 441
+        },
+        {
+          "batch": 6,
+          "lag": 0,
+          "rows": 5004,
+          "at": "2026-11-15T07:11:17.000Z",
+          "ms": 443
+        },
+        {
+          "batch": 7,
+          "lag": 0,
+          "rows": 5028,
+          "at": "2026-11-15T07:11:18.005Z",
+          "ms": 419
+        },
+        {
+          "batch": 8,
+          "lag": 0,
+          "rows": 5003,
+          "at": "2026-11-15T07:11:19.004Z",
+          "ms": 396
+        },
+        {
+          "batch": 9,
+          "lag": 0,
+          "rows": 4977,
+          "at": "2026-11-15T07:11:20.005Z",
+          "ms": 412
+        },
+        {
+          "batch": 10,
+          "lag": 0,
+          "rows": 5007,
+          "at": "2026-11-15T07:11:21.001Z",
+          "ms": 383
+        },
+        {
+          "batch": 11,
+          "lag": 0,
+          "rows": 5002,
+          "at": "2026-11-15T07:11:22.003Z",
+          "ms": 424
+        },
+        {
+          "batch": 12,
+          "lag": 0,
+          "rows": 4984,
+          "at": "2026-11-15T07:11:23.000Z",
+          "ms": 401
+        },
+        {
+          "batch": 13,
+          "lag": 0,
+          "rows": 5021,
+          "at": "2026-11-15T07:11:24.005Z",
+          "ms": 391
+        },
+        {
+          "batch": 14,
+          "lag": 0,
+          "rows": 5016,
+          "at": "2026-11-15T07:11:25.005Z",
+          "ms": 391
+        },
+        {
+          "batch": 15,
+          "lag": 0,
+          "rows": 4964,
+          "at": "2026-11-15T07:11:26.002Z",
+          "ms": 388
+        },
+        {
+          "batch": 16,
+          "lag": 0,
+          "rows": 5000,
+          "at": "2026-11-15T07:11:27.002Z",
+          "ms": 400
+        },
+        {
+          "batch": 17,
+          "lag": 0,
+          "rows": 5014,
+          "at": "2026-11-15T07:11:28.002Z",
+          "ms": 370
+        },
+        {
+          "batch": 18,
+          "lag": 0,
+          "rows": 4989,
+          "at": "2026-11-15T07:11:29.002Z",
+          "ms": 386
+        },
+        {
+          "batch": 19,
+          "lag": 0,
+          "rows": 5004,
+          "at": "2026-11-15T07:11:30.005Z",
+          "ms": 402
+        },
+        {
+          "batch": 20,
+          "lag": 0,
+          "rows": 4974,
+          "at": "2026-11-15T07:11:31.001Z",
+          "ms": 499
+        },
+        {
+          "batch": 21,
+          "lag": 0,
+          "rows": 4996,
+          "at": "2026-11-15T07:11:32.001Z",
+          "ms": 679
+        },
+        {
+          "batch": 22,
+          "lag": 0,
+          "rows": 5007,
+          "at": "2026-11-15T07:11:33.001Z",
+          "ms": 489
+        },
+        {
+          "batch": 23,
+          "lag": 0,
+          "rows": 4998,
+          "at": "2026-11-15T07:11:34.001Z",
+          "ms": 396
+        },
+        {
+          "batch": 24,
+          "lag": 0,
+          "rows": 5032,
+          "at": "2026-11-15T07:11:35.005Z",
+          "ms": 395
+        },
+        {
+          "batch": 25,
+          "lag": 0,
+          "rows": 4955,
+          "at": "2026-11-15T07:11:36.002Z",
+          "ms": 427
+        },
+        {
+          "batch": 26,
+          "lag": 0,
+          "rows": 5022,
+          "at": "2026-11-15T07:11:37.004Z",
+          "ms": 431
+        },
+        {
+          "batch": 27,
+          "lag": 0,
+          "rows": 4980,
+          "at": "2026-11-15T07:11:38.005Z",
+          "ms": 368
+        },
+        {
+          "batch": 28,
+          "lag": 0,
+          "rows": 4989,
+          "at": "2026-11-15T07:11:39.003Z",
+          "ms": 416
+        },
+        {
+          "batch": 29,
+          "lag": 0,
+          "rows": 4973,
+          "at": "2026-11-15T07:11:40.002Z",
+          "ms": 548
+        },
+        {
+          "batch": 30,
+          "lag": 0,
+          "rows": 4397,
+          "at": "2026-11-15T07:11:41.004Z",
+          "ms": 940
+        }
+      ],
+      "latency_kind": "driver-observed batch completion proxy; not sink visibility latency",
+      "achieved_rate_runs": [
+        4998,
+        4999,
+        4998
+      ],
+      "drain_after_replay_seconds_runs": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "processed_rows_per_second_median_runs": [
+        9684,
+        11996,
+        11843
+      ],
+      "latency_p50_ms_runs": [
+        1088.0,
+        1011.0,
+        969.0
+      ],
+      "latency_p95_ms_runs": [
+        1598.0,
+        1472.0,
+        1448.0
+      ],
+      "alert_latency_p50_ms_runs": [
+        1082.0,
+        956.0,
+        1018.0
+      ],
+      "alert_latency_p95_ms_runs": [
+        1540.0,
+        1432.0,
+        1472.0
+      ],
+      "visibility_p50_ms_runs": [
+        2099.5,
+        1959.0,
+        1882.5
+      ],
+      "visibility_p95_ms_runs": [
+        3526.7,
+        3024.0,
+        3346.0
+      ],
+      "max_lag_runs": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "target_rate": 10000,
+      "copies": 25,
+      "metrics": 75,
+      "data_records": 302400,
+      "achieved_rate": 9995,
+      "replay_seconds": 30.5,
+      "drain_after_replay_seconds": 2.0,
+      "processed_rows_per_second_median": 18480,
+      "batches": 31,
+      "latency_p50_ms": 1106.0,
+      "latency_p95_ms": 1713.0,
+      "alert_latency_p50_ms": 1033.0,
+      "alert_latency_p95_ms": 1828.0,
+      "visible_alerts": 2175,
+      "visibility_p50_ms": 2745.0,
+      "visibility_p95_ms": 4508.0,
+      "max_lag": 0,
+      "lag": [
+        {
+          "batch": 0,
+          "lag": 0,
+          "rows": 0,
+          "at": "2026-11-15T07:13:51.102Z",
+          "ms": 2346
+        },
+        {
+          "batch": 1,
+          "lag": 0,
+          "rows": 7534,
+          "at": "2026-11-15T07:14:09.005Z",
+          "ms": 1780
+        },
+        {
+          "batch": 2,
+          "lag": 0,
+          "rows": 19239,
+          "at": "2026-11-15T07:14:10.786Z",
+          "ms": 816
+        },
+        {
+          "batch": 3,
+          "lag": 0,
+          "rows": 8097,
+          "at": "2026-11-15T07:14:11.603Z",
+          "ms": 516
+        },
+        {
+          "batch": 4,
+          "lag": 0,
+          "rows": 5247,
+          "at": "2026-11-15T07:14:12.120Z",
+          "ms": 500
+        },
+        {
+          "batch": 5,
+          "lag": 0,
+          "rows": 8888,
+          "at": "2026-11-15T07:14:13.002Z",
+          "ms": 568
+        },
+        {
+          "batch": 6,
+          "lag": 0,
+          "rows": 10003,
+          "at": "2026-11-15T07:14:14.002Z",
+          "ms": 497
+        },
+        {
+          "batch": 7,
+          "lag": 0,
+          "rows": 9920,
+          "at": "2026-11-15T07:14:15.001Z",
+          "ms": 506
+        },
+        {
+          "batch": 8,
+          "lag": 0,
+          "rows": 10124,
+          "at": "2026-11-15T07:14:16.005Z",
+          "ms": 555
+        },
+        {
+          "batch": 9,
+          "lag": 0,
+          "rows": 9949,
+          "at": "2026-11-15T07:14:17.003Z",
+          "ms": 491
+        },
+        {
+          "batch": 10,
+          "lag": 0,
+          "rows": 9990,
+          "at": "2026-11-15T07:14:18.001Z",
+          "ms": 468
+        },
+        {
+          "batch": 11,
+          "lag": 0,
+          "rows": 9993,
+          "at": "2026-11-15T07:14:19.003Z",
+          "ms": 567
+        },
+        {
+          "batch": 12,
+          "lag": 0,
+          "rows": 9975,
+          "at": "2026-11-15T07:14:20.001Z",
+          "ms": 454
+        },
+        {
+          "batch": 13,
+          "lag": 0,
+          "rows": 10003,
+          "at": "2026-11-15T07:14:21.001Z",
+          "ms": 502
+        },
+        {
+          "batch": 14,
+          "lag": 0,
+          "rows": 10064,
+          "at": "2026-11-15T07:14:22.004Z",
+          "ms": 452
+        },
+        {
+          "batch": 15,
+          "lag": 0,
+          "rows": 9936,
+          "at": "2026-11-15T07:14:23.001Z",
+          "ms": 708
+        },
+        {
+          "batch": 16,
+          "lag": 0,
+          "rows": 9942,
+          "at": "2026-11-15T07:14:24.000Z",
+          "ms": 565
+        },
+        {
+          "batch": 17,
+          "lag": 0,
+          "rows": 10189,
+          "at": "2026-11-15T07:14:25.001Z",
+          "ms": 638
+        },
+        {
+          "batch": 18,
+          "lag": 0,
+          "rows": 9077,
+          "at": "2026-11-15T07:14:26.003Z",
+          "ms": 779
+        },
+        {
+          "batch": 19,
+          "lag": 0,
+          "rows": 7955,
+          "at": "2026-11-15T07:14:27.004Z",
+          "ms": 718
+        },
+        {
+          "batch": 20,
+          "lag": 0,
+          "rows": 10446,
+          "at": "2026-11-15T07:14:28.001Z",
+          "ms": 628
+        },
+        {
+          "batch": 21,
+          "lag": 0,
+          "rows": 12121,
+          "at": "2026-11-15T07:14:29.001Z",
+          "ms": 698
+        },
+        {
+          "batch": 22,
+          "lag": 0,
+          "rows": 10175,
+          "at": "2026-11-15T07:14:30.003Z",
+          "ms": 499
+        },
+        {
+          "batch": 23,
+          "lag": 0,
+          "rows": 10165,
+          "at": "2026-11-15T07:14:31.004Z",
+          "ms": 679
+        },
+        {
+          "batch": 24,
+          "lag": 0,
+          "rows": 9850,
+          "at": "2026-11-15T07:14:32.001Z",
+          "ms": 533
+        },
+        {
+          "batch": 25,
+          "lag": 0,
+          "rows": 10142,
+          "at": "2026-11-15T07:14:33.005Z",
+          "ms": 458
+        },
+        {
+          "batch": 26,
+          "lag": 0,
+          "rows": 10033,
+          "at": "2026-11-15T07:14:34.005Z",
+          "ms": 498
+        },
+        {
+          "batch": 27,
+          "lag": 0,
+          "rows": 9915,
+          "at": "2026-11-15T07:14:35.003Z",
+          "ms": 500
+        },
+        {
+          "batch": 28,
+          "lag": 0,
+          "rows": 9979,
+          "at": "2026-11-15T07:14:36.001Z",
+          "ms": 496
+        },
+        {
+          "batch": 29,
+          "lag": 0,
+          "rows": 10063,
+          "at": "2026-11-15T07:14:37.003Z",
+          "ms": 477
+        },
+        {
+          "batch": 30,
+          "lag": 0,
+          "rows": 9970,
+          "at": "2026-11-15T07:14:38.003Z",
+          "ms": 438
+        },
+        {
+          "batch": 31,
+          "lag": 0,
+          "rows": 3491,
+          "at": "2026-11-15T07:14:39.004Z",
+          "ms": 1040
+        }
+      ],
+      "latency_kind": "driver-observed batch completion proxy; not sink visibility latency",
+      "achieved_rate_runs": [
+        9995,
+        9991,
+        9995
+      ],
+      "drain_after_replay_seconds_runs": [
+        1.5,
+        2.0,
+        2.0
+      ],
+      "processed_rows_per_second_median_runs": [
+        16250,
+        18480,
+        20369
+      ],
+      "latency_p50_ms_runs": [
+        1372.0,
+        1106.0,
+        1068.0
+      ],
+      "latency_p95_ms_runs": [
+        2104.0,
+        1713.0,
+        1553.0
+      ],
+      "alert_latency_p50_ms_runs": [
+        1441.0,
+        975.0,
+        1033.0
+      ],
+      "alert_latency_p95_ms_runs": [
+        2112.0,
+        1828.0,
+        1542.0
+      ],
+      "visibility_p50_ms_runs": [
+        2963.0,
+        2745.0,
+        2409.0
+      ],
+      "visibility_p95_ms_runs": [
+        4833.299999999999,
+        4508.0,
+        3832.899999999999
+      ],
+      "max_lag_runs": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "repeats": 3,
+  "parity_1000": {
+    "reference_records": 36288,
+    "actual_records": 36288,
+    "missing": 0,
+    "extra": 0,
+    "reference_duplicates": 0,
+    "actual_duplicates": 0,
+    "mismatches": 0,
+    "passed": true
+  },
+  "setup": "3 CloudWatch series x copies, Kafka topic with 4 partitions, local[4], 4 shuffle partitions, trigger 1 s, maxOffsetsPerTrigger 50000; each rate run 3 times, median reported",
+  "generated_at": "2026-11-15T07:15:49+00:00"
+}
