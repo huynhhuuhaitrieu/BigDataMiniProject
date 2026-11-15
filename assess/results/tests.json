@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "ran": 9,
+  "tests": [
+    {
+      "name": "test_buffer_reorders_across_batches_and_drains",
+      "suite": "test_anomaly_detection",
+      "status": "ok"
+    },
+    {
+      "name": "test_late_duplicate_invalid_and_unknown_do_not_pollute_history",
+      "suite": "test_anomaly_detection",
+      "status": "ok"
+    },
+    {
+      "name": "test_numerical_reference_with_eviction",
+      "suite": "test_anomaly_detection",
+      "status": "ok"
+    },
+    {
+      "name": "test_per_metric_isolation_and_config_guard",
+      "suite": "test_anomaly_detection",
+      "status": "ok"
+    },
+    {
+      "name": "test_prior_history_and_flat_jump",
+      "suite": "test_anomaly_detection",
+      "status": "ok"
+    },
+    {
+      "name": "test_state_survives_batches_and_restart",
+      "suite": "test_anomaly_detection",
+      "status": "ok"
+    },
+    {
+      "name": "test_window_evaluation_has_distinct_false_alert_and_hit_counts",
+      "suite": "test_anomaly_detection",
+      "status": "ok"
+    },
+    {
+      "name": "test_restart_matches_sequential_reference_and_commits_once",
+      "suite": "test_spark_anomaly",
+      "status": "ok"
+    },
+    {
+      "name": "test_watermark_timeout_drains_out_of_order_values",
+      "suite": "test_spark_anomaly",
+      "status": "ok"
+    }
+  ],
+  "summary": "OK",
+  "generated_at": "2026-11-15T05:32:27+00:00"
+}

@@ -1,0 +1,485 @@
+{
+  "files": 17,
+  "spark_wall_seconds": 7.1,
+  "parity": {
+    "reference_records": 67740,
+    "actual_records": 67740,
+    "missing": 0,
+    "extra": 0,
+    "reference_duplicates": 0,
+    "actual_duplicates": 0,
+    "mismatches": 0,
+    "passed": true
+  },
+  "status_counts": {
+    "control": 17,
+    "calibration": 10149,
+    "accepted": 57591
+  },
+  "aggregate": {
+    "static": {
+      "evaluated_records": 57591,
+      "eligible_windows": 30,
+      "detected_windows": 26,
+      "missed_windows": 4,
+      "false_alerts": 5270,
+      "window_recall": 0.8666666666666667,
+      "false_alerts_per_1000": 91.50735357955236
+    },
+    "rolling": {
+      "evaluated_records": 57591,
+      "eligible_windows": 30,
+      "detected_windows": 28,
+      "missed_windows": 2,
+      "false_alerts": 843,
+      "window_recall": 0.9333333333333333,
+      "false_alerts_per_1000": 14.637703807886648
+    }
+  },
+  "series": {
+    "realAWSCloudwatch/ec2_cpu_utilization_24ae8d.csv": {
+      "static": {
+        "evaluated_records": 3428,
+        "eligible_windows": 2,
+        "detected_windows": 2,
+        "missed_windows": 0,
+        "false_alerts": 11,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 3.208868144690782,
+        "delay_median_seconds": 30000.0,
+        "delay_p95_seconds": 30000.0,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 3428,
+        "eligible_windows": 2,
+        "detected_windows": 2,
+        "missed_windows": 0,
+        "false_alerts": 12,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 3.500583430571762,
+        "delay_median_seconds": 28050.0,
+        "delay_p95_seconds": 29805.0,
+        "undecided_records": 0
+      }
+    },
+    "realAWSCloudwatch/ec2_cpu_utilization_53ea38.csv": {
+      "static": {
+        "evaluated_records": 3428,
+        "eligible_windows": 2,
+        "detected_windows": 2,
+        "missed_windows": 0,
+        "false_alerts": 26,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 7.584597432905484,
+        "delay_median_seconds": 31650.0,
+        "delay_p95_seconds": 31785.0,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 3428,
+        "eligible_windows": 2,
+        "detected_windows": 2,
+        "missed_windows": 0,
+        "false_alerts": 30,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 8.751458576429405,
+        "delay_median_seconds": 25650.0,
+        "delay_p95_seconds": 31185.0,
+        "undecided_records": 0
+      }
+    },
+    "realAWSCloudwatch/ec2_cpu_utilization_5f5533.csv": {
+      "static": {
+        "evaluated_records": 3428,
+        "eligible_windows": 2,
+        "detected_windows": 2,
+        "missed_windows": 0,
+        "false_alerts": 2,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 0.5834305717619603,
+        "delay_median_seconds": 30000.0,
+        "delay_p95_seconds": 30000.0,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 3428,
+        "eligible_windows": 2,
+        "detected_windows": 2,
+        "missed_windows": 0,
+        "false_alerts": 5,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 1.4585764294049008,
+        "delay_median_seconds": 30000.0,
+        "delay_p95_seconds": 30000.0,
+        "undecided_records": 0
+      }
+    },
+    "realAWSCloudwatch/ec2_cpu_utilization_77c1ca.csv": {
+      "static": {
+        "evaluated_records": 3428,
+        "eligible_windows": 1,
+        "detected_windows": 1,
+        "missed_windows": 0,
+        "false_alerts": 56,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 16.33605600933489,
+        "delay_median_seconds": 20100.0,
+        "delay_p95_seconds": 20100.0,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 3428,
+        "eligible_windows": 1,
+        "detected_windows": 1,
+        "missed_windows": 0,
+        "false_alerts": 88,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 25.670945157526255,
+        "delay_median_seconds": 1200.0,
+        "delay_p95_seconds": 1200.0,
+        "undecided_records": 0
+      }
+    },
+    "realAWSCloudwatch/ec2_cpu_utilization_825cc2.csv": {
+      "static": {
+        "evaluated_records": 3428,
+        "eligible_windows": 1,
+        "detected_windows": 1,
+        "missed_windows": 0,
+        "false_alerts": 178,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 51.92532088681447,
+        "delay_median_seconds": 30000.0,
+        "delay_p95_seconds": 30000.0,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 3428,
+        "eligible_windows": 1,
+        "detected_windows": 1,
+        "missed_windows": 0,
+        "false_alerts": 39,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 11.376896149358226,
+        "delay_median_seconds": 25800.0,
+        "delay_p95_seconds": 25800.0,
+        "undecided_records": 0
+      }
+    },
+    "realAWSCloudwatch/ec2_cpu_utilization_ac20cd.csv": {
+      "static": {
+        "evaluated_records": 3428,
+        "eligible_windows": 1,
+        "detected_windows": 1,
+        "missed_windows": 0,
+        "false_alerts": 255,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 74.38739789964994,
+        "delay_median_seconds": 61200.0,
+        "delay_p95_seconds": 61200.0,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 3428,
+        "eligible_windows": 1,
+        "detected_windows": 1,
+        "missed_windows": 0,
+        "false_alerts": 22,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 6.417736289381564,
+        "delay_median_seconds": 14700.0,
+        "delay_p95_seconds": 14700.0,
+        "undecided_records": 0
+      }
+    },
+    "realAWSCloudwatch/ec2_cpu_utilization_c6585a.csv": {
+      "static": {
+        "evaluated_records": 3428,
+        "eligible_windows": 0,
+        "detected_windows": 0,
+        "missed_windows": 0,
+        "false_alerts": 12,
+        "window_recall": null,
+        "false_alerts_per_1000": 3.500583430571762,
+        "delay_median_seconds": null,
+        "delay_p95_seconds": null,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 3428,
+        "eligible_windows": 0,
+        "detected_windows": 0,
+        "missed_windows": 0,
+        "false_alerts": 21,
+        "window_recall": null,
+        "false_alerts_per_1000": 6.1260210035005835,
+        "delay_median_seconds": null,
+        "delay_p95_seconds": null,
+        "undecided_records": 0
+      }
+    },
+    "realAWSCloudwatch/ec2_cpu_utilization_fe7f93.csv": {
+      "static": {
+        "evaluated_records": 3428,
+        "eligible_windows": 3,
+        "detected_windows": 2,
+        "missed_windows": 1,
+        "false_alerts": 161,
+        "window_recall": 0.6666666666666666,
+        "false_alerts_per_1000": 46.96616102683781,
+        "delay_median_seconds": 16950.0,
+        "delay_p95_seconds": 18435.0,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 3428,
+        "eligible_windows": 3,
+        "detected_windows": 3,
+        "missed_windows": 0,
+        "false_alerts": 125,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 36.46441073512252,
+        "delay_median_seconds": 6000.0,
+        "delay_p95_seconds": 14640.0,
+        "undecided_records": 0
+      }
+    },
+    "realAWSCloudwatch/ec2_disk_write_bytes_1ef3de.csv": {
+      "static": {
+        "evaluated_records": 4021,
+        "eligible_windows": 1,
+        "detected_windows": 1,
+        "missed_windows": 0,
+        "false_alerts": 74,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 18.403382243223078,
+        "delay_median_seconds": 41400.0,
+        "delay_p95_seconds": 41400.0,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 4021,
+        "eligible_windows": 1,
+        "detected_windows": 1,
+        "missed_windows": 0,
+        "false_alerts": 83,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 20.641631434966428,
+        "delay_median_seconds": 23400.0,
+        "delay_p95_seconds": 23400.0,
+        "undecided_records": 0
+      }
+    },
+    "realAWSCloudwatch/ec2_disk_write_bytes_c0d644.csv": {
+      "static": {
+        "evaluated_records": 3428,
+        "eligible_windows": 3,
+        "detected_windows": 2,
+        "missed_windows": 1,
+        "false_alerts": 66,
+        "window_recall": 0.6666666666666666,
+        "false_alerts_per_1000": 19.25320886814469,
+        "delay_median_seconds": 7200.0,
+        "delay_p95_seconds": 13680.0,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 3428,
+        "eligible_windows": 3,
+        "detected_windows": 2,
+        "missed_windows": 1,
+        "false_alerts": 75,
+        "window_recall": 0.6666666666666666,
+        "false_alerts_per_1000": 21.878646441073514,
+        "delay_median_seconds": 7200.0,
+        "delay_p95_seconds": 13680.0,
+        "undecided_records": 0
+      }
+    },
+    "realAWSCloudwatch/ec2_network_in_257a54.csv": {
+      "static": {
+        "evaluated_records": 3428,
+        "eligible_windows": 1,
+        "detected_windows": 1,
+        "missed_windows": 0,
+        "false_alerts": 1,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 0.29171528588098017,
+        "delay_median_seconds": 60300.0,
+        "delay_p95_seconds": 60300.0,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 3428,
+        "eligible_windows": 1,
+        "detected_windows": 1,
+        "missed_windows": 0,
+        "false_alerts": 42,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 12.252042007001167,
+        "delay_median_seconds": 60300.0,
+        "delay_p95_seconds": 60300.0,
+        "undecided_records": 0
+      }
+    },
+    "realAWSCloudwatch/ec2_network_in_5abac7.csv": {
+      "static": {
+        "evaluated_records": 4021,
+        "eligible_windows": 2,
+        "detected_windows": 2,
+        "missed_windows": 0,
+        "false_alerts": 53,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 13.180800795821934,
+        "delay_median_seconds": 17700.0,
+        "delay_p95_seconds": 21210.0,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 4021,
+        "eligible_windows": 2,
+        "detected_windows": 2,
+        "missed_windows": 0,
+        "false_alerts": 84,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 20.890325789604574,
+        "delay_median_seconds": 14400.0,
+        "delay_p95_seconds": 14940.0,
+        "undecided_records": 0
+      }
+    },
+    "realAWSCloudwatch/elb_request_count_8c0756.csv": {
+      "static": {
+        "evaluated_records": 3428,
+        "eligible_windows": 2,
+        "detected_windows": 2,
+        "missed_windows": 0,
+        "false_alerts": 25,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 7.292882147024504,
+        "delay_median_seconds": 18750.0,
+        "delay_p95_seconds": 20235.0,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 3428,
+        "eligible_windows": 2,
+        "detected_windows": 2,
+        "missed_windows": 0,
+        "false_alerts": 53,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 15.460910151691948,
+        "delay_median_seconds": 11100.0,
+        "delay_p95_seconds": 16500.0,
+        "undecided_records": 0
+      }
+    },
+    "realAWSCloudwatch/grok_asg_anomaly.csv": {
+      "static": {
+        "evaluated_records": 3928,
+        "eligible_windows": 3,
+        "detected_windows": 3,
+        "missed_windows": 0,
+        "false_alerts": 888,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 226.0692464358452,
+        "delay_median_seconds": 6900.0,
+        "delay_p95_seconds": 21210.0,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 3928,
+        "eligible_windows": 3,
+        "detected_windows": 3,
+        "missed_windows": 0,
+        "false_alerts": 46,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 11.710794297352342,
+        "delay_median_seconds": 23100.0,
+        "delay_p95_seconds": 23100.0,
+        "undecided_records": 0
+      }
+    },
+    "realAWSCloudwatch/iio_us-east-1_i-a2eb1cd9_NetworkIn.csv": {
+      "static": {
+        "evaluated_records": 1057,
+        "eligible_windows": 2,
+        "detected_windows": 0,
+        "missed_windows": 2,
+        "false_alerts": 5,
+        "window_recall": 0.0,
+        "false_alerts_per_1000": 4.7303689687795645,
+        "delay_median_seconds": null,
+        "delay_p95_seconds": null,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 1057,
+        "eligible_windows": 2,
+        "detected_windows": 1,
+        "missed_windows": 1,
+        "false_alerts": 21,
+        "window_recall": 0.5,
+        "false_alerts_per_1000": 19.867549668874172,
+        "delay_median_seconds": 9300.0,
+        "delay_p95_seconds": 9300.0,
+        "undecided_records": 0
+      }
+    },
+    "realAWSCloudwatch/rds_cpu_utilization_cc0c53.csv": {
+      "static": {
+        "evaluated_records": 3428,
+        "eligible_windows": 2,
+        "detected_windows": 2,
+        "missed_windows": 0,
+        "false_alerts": 671,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 195.74095682613768,
+        "delay_median_seconds": 2400.0,
+        "delay_p95_seconds": 4560.0,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 3428,
+        "eligible_windows": 2,
+        "detected_windows": 2,
+        "missed_windows": 0,
+        "false_alerts": 67,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 19.544924154025672,
+        "delay_median_seconds": 17400.0,
+        "delay_p95_seconds": 28740.0,
+        "undecided_records": 0
+      }
+    },
+    "realAWSCloudwatch/rds_cpu_utilization_e47b3b.csv": {
+      "static": {
+        "evaluated_records": 3428,
+        "eligible_windows": 2,
+        "detected_windows": 2,
+        "missed_windows": 0,
+        "false_alerts": 2786,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 812.7187864644108,
+        "delay_median_seconds": 15000.0,
+        "delay_p95_seconds": 28500.0,
+        "undecided_records": 0
+      },
+      "rolling": {
+        "evaluated_records": 3428,
+        "eligible_windows": 2,
+        "detected_windows": 2,
+        "missed_windows": 0,
+        "false_alerts": 30,
+        "window_recall": 1.0,
+        "false_alerts_per_1000": 8.751458576429405,
+        "delay_median_seconds": 23700.0,
+        "delay_p95_seconds": 29370.0,
+        "undecided_records": 0
+      }
+    }
+  },
+  "policy": "No cooldown. Recall includes only windows fully contained in the common post-calibration interval; undecided points remain in the denominator.",
+  "generated_at": "2026-11-15T03:36:42+00:00"
+}

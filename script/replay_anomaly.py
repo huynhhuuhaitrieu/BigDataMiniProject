@@ -60,7 +60,8 @@ def main():
             from kafka import KafkaProducer
             producer = KafkaProducer(bootstrap_servers=args.bootstrap_servers.split(','),
                 value_serializer=lambda e: json.dumps(e, allow_nan=False).encode(),
-                acks='all', retries=3, max_in_flight_requests_per_connection=1)
+                acks='all', retries=3, max_in_flight_requests_per_connection=1,
+                batch_size=256 * 1024, linger_ms=5)
         started = time.monotonic()
         for event in replay_events(files, args.data_root, args.run_id, args.copies, args.shuffle_block, args.seed, artifact):
             send(event)
@@ -69,6 +70,9 @@ def main():
             maximum_time = max(maximum_time or event['event_time'], event['event_time'])
             if args.rate:
                 time.sleep(max(0, sent / args.rate - (time.monotonic() - started)))
+            elif producer and sent % 20000 == 0:
+                # Unthrottled replay: bound unacknowledged records so the final flush cannot time out.
+                producer.flush(timeout=60)
         if maximum_time:
             # Flush data acknowledgments before emitting global watermark control events.
             if producer:

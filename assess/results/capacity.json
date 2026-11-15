@@ -1,0 +1,197 @@
+{
+  "runs": [
+    {
+      "cores": 1,
+      "kafka_partitions": 4,
+      "records": 120990,
+      "metrics": 30,
+      "batches": 7,
+      "processing_seconds": 14.0,
+      "records_per_second": 8623,
+      "startup_plus_processing_seconds": 17.7,
+      "state_memory_bytes": 69760,
+      "records_per_second_runs": [
+        8326,
+        8623,
+        8624
+      ],
+      "processing_seconds_runs": [
+        14.5,
+        14.0,
+        14.0
+      ],
+      "startup_plus_processing_seconds_runs": [
+        19.2,
+        17.7,
+        17.6
+      ],
+      "state_memory_bytes_runs": [
+        69760,
+        69760,
+        69760
+      ]
+    },
+    {
+      "cores": 2,
+      "kafka_partitions": 4,
+      "records": 120990,
+      "metrics": 30,
+      "batches": 7,
+      "processing_seconds": 10.8,
+      "records_per_second": 11211,
+      "startup_plus_processing_seconds": 14.1,
+      "state_memory_bytes": 69760,
+      "records_per_second_runs": [
+        11192,
+        12499,
+        11211
+      ],
+      "processing_seconds_runs": [
+        10.8,
+        9.7,
+        10.8
+      ],
+      "startup_plus_processing_seconds_runs": [
+        14.1,
+        13.1,
+        14.1
+      ],
+      "state_memory_bytes_runs": [
+        69760,
+        69760,
+        69760
+      ]
+    },
+    {
+      "cores": 4,
+      "kafka_partitions": 4,
+      "records": 120990,
+      "metrics": 30,
+      "batches": 7,
+      "processing_seconds": 9.3,
+      "records_per_second": 13005,
+      "startup_plus_processing_seconds": 12.6,
+      "state_memory_bytes": 69760,
+      "records_per_second_runs": [
+        12955,
+        13595,
+        13005
+      ],
+      "processing_seconds_runs": [
+        9.3,
+        8.9,
+        9.3
+      ],
+      "startup_plus_processing_seconds_runs": [
+        12.6,
+        12.1,
+        12.6
+      ],
+      "state_memory_bytes_runs": [
+        69760,
+        69760,
+        69760
+      ]
+    },
+    {
+      "cores": 8,
+      "kafka_partitions": 4,
+      "records": 120990,
+      "metrics": 30,
+      "batches": 7,
+      "processing_seconds": 9.3,
+      "records_per_second": 13067,
+      "startup_plus_processing_seconds": 12.6,
+      "state_memory_bytes": 71744,
+      "records_per_second_runs": [
+        12237,
+        13067,
+        14121
+      ],
+      "processing_seconds_runs": [
+        9.9,
+        9.3,
+        8.6
+      ],
+      "startup_plus_processing_seconds_runs": [
+        13.6,
+        12.6,
+        11.6
+      ],
+      "state_memory_bytes_runs": [
+        71744,
+        71744,
+        71744
+      ]
+    },
+    {
+      "cores": 4,
+      "kafka_partitions": 1,
+      "records": 120990,
+      "metrics": 30,
+      "batches": 7,
+      "processing_seconds": 9.0,
+      "records_per_second": 13436,
+      "startup_plus_processing_seconds": 12.1,
+      "state_memory_bytes": 69760,
+      "records_per_second_runs": [
+        13452,
+        13359,
+        13436
+      ],
+      "processing_seconds_runs": [
+        9.0,
+        9.1,
+        9.0
+      ],
+      "startup_plus_processing_seconds_runs": [
+        12.1,
+        12.1,
+        12.6
+      ],
+      "state_memory_bytes_runs": [
+        69760,
+        69760,
+        69760
+      ]
+    },
+    {
+      "cores": 4,
+      "kafka_partitions": 8,
+      "records": 120990,
+      "metrics": 30,
+      "batches": 7,
+      "processing_seconds": 10.0,
+      "records_per_second": 12073,
+      "startup_plus_processing_seconds": 13.1,
+      "state_memory_bytes": 71744,
+      "records_per_second_runs": [
+        11235,
+        12232,
+        12073
+      ],
+      "processing_seconds_runs": [
+        10.8,
+        9.9,
+        10.0
+      ],
+      "startup_plus_processing_seconds_runs": [
+        14.1,
+        13.1,
+        13.1
+      ],
+      "state_memory_bytes_runs": [
+        71744,
+        71744,
+        71744
+      ]
+    }
+  ],
+  "repeats": 3,
+  "machine": {
+    "cpu_count": 8,
+    "platform": "macOS-26.6.2-arm64-arm-64bit"
+  },
+  "note": "Topic preloaded unthrottled before Spark starts; maxOffsetsPerTrigger 20000; trigger 1 s; each configuration run 3 times, median reported. Measures how fast Spark empties a full topic on this machine.",
+  "generated_at": "2026-11-15T07:20:43+00:00"
+}
